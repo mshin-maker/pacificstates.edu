@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pacific States University</title>
+<meta name="description" content="Education is the Best Investment">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&display=swap" rel="stylesheet">
+<style>:root{
+  --green-900:#0c2e22;
+  --green-800:#123d2d;
+  --green-700:#1a5039;
+  --green-600:#24664a;
+  --green-100:#e3ece6;
+  --green-50:#f1f6f2;
+  --ink:#16201b;
+  --ink-soft:#46534c;
+  --line:#d6ddd8;
+  --paper:#ffffff;
+  --stone:#f6f5f1;
+  --brass:#b8924a;
+  --focus:#f2c14e;
+  --radius:6px;
+  --max:1200px;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--green-700);text-underline-offset:3px}
+a:hover{color:var(--green-900)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green-900);line-height:1.2;margin:0 0 .5em;font-weight:600}
+h1{font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3vw,2.3rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--focus);color:#000;padding:10px 14px;z-index:100;font-weight:600}
+.skip:focus{top:12px}
+.eyebrow{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-600);margin-bottom:.8em;display:block}
+
+/* utility bar */
+.utility{background:var(--green-900);color:#dfe9e3;font-size:.84rem}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:40px;flex-wrap:wrap}
+.utility a{color:#dfe9e3;text-decoration:none}
+.utility a:hover{color:#fff;text-decoration:underline}
+.utility ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;flex-wrap:wrap}
+.utility .contact{display:flex;gap:18px}
+
+/* header */
+.site-header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.site-header .bar{display:flex;align-items:center;gap:24px;min-height:84px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.brand img{height:56px;width:auto}
+.primary-nav{flex:1}
+.primary-nav>ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;justify-content:center}
+.nav-btn,.nav-link{font:600 .95rem var(--sans);color:var(--ink);background:none;border:0;padding:30px 11px;white-space:nowrap;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:6px;border-bottom:3px solid transparent}
+.nav-btn:hover,.nav-link:hover,.nav-btn[aria-expanded="true"]{color:var(--green-700);border-bottom-color:var(--green-700)}
+.nav-btn svg{width:10px;height:10px;transition:transform .2s}
+.nav-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 18px 30px -18px rgba(12,46,34,.35);display:none}
+.mega.open{display:block}
+.mega .wrap{display:grid;grid-template-columns:260px 1fr;gap:40px;padding-top:32px;padding-bottom:36px}
+.mega-intro h2{font-size:1.6rem}
+.mega-intro p{color:var(--ink-soft);font-size:.95rem}
+.mega-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.mega-cols h3{font:700 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--green-600);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.mega-cols ul{list-style:none;margin:0;padding:0}
+.mega-cols li a{display:block;padding:5px 0;color:var(--ink);text-decoration:none;font-size:.95rem}
+.mega-cols li a:hover{color:var(--green-700);text-decoration:underline}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-btn{background:none;border:1px solid var(--line);border-radius:999px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;color:var(--green-900)}
+.icon-btn:hover{border-color:var(--green-700)}
+.icon-btn svg{width:20px;height:20px}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--sans);padding:12px 22px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s}
+.btn-primary{background:var(--green-700);color:#fff}
+.btn-primary:hover{background:var(--green-900);color:#fff}
+.btn-light{background:#fff;color:var(--green-900)}
+.btn-light:hover{background:var(--green-100);color:var(--green-900)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn-outline{border-color:var(--green-700);color:var(--green-700)}
+.btn-outline:hover{background:var(--green-700);color:#fff}
+.menu-toggle{display:none}
+
+/* search */
+.search-panel{background:var(--green-50);border-bottom:1px solid var(--line);display:none}
+.search-panel.open{display:block}
+.search-panel .wrap{padding-top:24px;padding-bottom:24px}
+.search-panel label{font-weight:600;display:block;margin-bottom:8px;color:var(--green-900)}
+.search-field{display:flex;gap:10px}
+.search-field input{flex:1;font:inherit;padding:14px 16px;border:1px solid #9fb0a6;border-radius:var(--radius);background:#fff}
+.search-results{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.search-results a{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;text-decoration:none;color:var(--ink)}
+.search-results a:hover{border-color:var(--green-700)}
+.search-results small{display:block;color:var(--ink-soft);font-size:.8rem}
+.search-empty{margin-top:12px;color:var(--ink-soft)}
+
+/* hero */
+.hero{background:var(--green-800);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 500px at 85% 10%,rgba(255,255,255,.08),transparent 60%),linear-gradient(180deg,transparent 70%,rgba(0,0,0,.18));pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:80px;position:relative}
+.hero h1{color:#fff;font-size:clamp(2.4rem,5.4vw,4.2rem)}
+.hero h1 em{font-style:italic;color:#d9c48f}
+.hero .lede{font-size:1.15rem;color:#d6e3db;max-width:34em}
+.hero .eyebrow{color:#cfe0d5}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-figure{position:relative}
+.hero-figure img{width:100%;border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);aspect-ratio:4/3;object-fit:cover;background:var(--green-700)}
+.hero-figure::after{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid rgba(217,196,143,.55);border-radius:4px;z-index:-1}
+.accred{display:flex;align-items:center;gap:10px;margin-top:34px;font-size:.92rem;color:#cfe0d5}
+.accred svg{width:22px;height:22px;color:#d9c48f;flex-shrink:0}
+.accred a{color:#fff}
+
+/* quick links */
+.quick{background:var(--paper);border-bottom:1px solid var(--line)}
+.quick ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr)}
+.quick li+li{border-left:1px solid var(--line)}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 10px;text-align:center;text-decoration:none;color:var(--ink);font-weight:600;font-size:.92rem}
+.quick a:hover{background:var(--green-50);color:var(--green-700)}
+.quick svg{width:26px;height:26px;color:var(--green-600)}
+
+/* sections */
+.section{padding:88px 0}
+.section.alt{background:var(--stone)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.section-head p{color:var(--ink-soft);max-width:40em;margin:0}
+
+/* pathways */
+.pathways{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pathway{background:#fff;border:1px solid var(--line);border-top:4px solid var(--green-700);border-radius:var(--radius);padding:28px 24px}
+.pathway h3{margin-bottom:14px}
+.pathway ul{list-style:none;margin:0;padding:0}
+.pathway li{border-top:1px solid var(--line)}
+.pathway li a{display:flex;justify-content:space-between;align-items:center;padding:10px 0;text-decoration:none;color:var(--ink);font-size:.95rem}
+.pathway li a::after{content:"→";color:var(--green-600);transition:transform .15s}
+.pathway li a:hover{color:var(--green-700)}
+.pathway li a:hover::after{transform:translateX(3px)}
+
+/* programs */
+.colleges{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.college{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.college img{aspect-ratio:16/9;object-fit:cover;width:100%;background:var(--green-100)}
+.college-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.college-body .eyebrow{margin-bottom:.4em}
+.program-list{list-style:none;margin:8px 0 0;padding:0}
+.program-list li{border-top:1px solid var(--line)}
+.program-list a{display:block;padding:12px 0;text-decoration:none;color:var(--green-900);font-weight:600}
+.program-list a:hover{color:var(--green-600);text-decoration:underline}
+.program-list span{display:block;font-weight:400;font-size:.88rem;color:var(--ink-soft)}
+
+/* about split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.tagline{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--green-800);line-height:1.15;border-left:4px solid var(--brass);padding-left:22px;margin:0 0 28px}
+.facts{display:grid;gap:14px;margin-top:8px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.fact strong{display:block;color:var(--green-900);margin-bottom:2px}
+.fact p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+
+/* research */
+.research{background:var(--green-900);color:#e3ece6}
+.research h2{color:#fff}
+.research .section-head p{color:#bcd0c4}
+.research .eyebrow{color:#a9c7b5}
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.research-card{border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px;text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:10px;min-height:170px;transition:background .15s,border-color .15s}
+.research-card:hover{background:rgba(255,255,255,.06);border-color:#d9c48f;color:#fff}
+.research-card h3{color:#fff;font-size:1.3rem}
+.research-card span{margin-top:auto;font-size:.88rem;color:#d9c48f;font-weight:600}
+
+/* employers */
+.employers{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.employers li{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-weight:700;font-size:.85rem;letter-spacing:.06em;color:var(--green-800)}
+
+/* external news */
+.news-ext{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px}
+.news-ext p{color:var(--ink-soft);margin:0}
+
+/* page header (interior) */
+.page-hero{background:var(--green-800);color:#fff;padding:56px 0 48px}
+.page-hero h1{color:#fff;margin-bottom:.3em}
+.page-hero p{color:#d6e3db;max-width:44em;margin:0;font-size:1.08rem}
+.crumbs{font-size:.86rem;margin-bottom:18px}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.crumbs li+li::before{content:"/";margin-right:6px;color:#9fbfae}
+.crumbs a{color:#cfe0d5}
+.crumbs [aria-current]{color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 12px;font-size:.84rem;font-weight:600}
+
+.layout{display:grid;grid-template-columns:260px 1fr;gap:56px;padding:56px 0 88px}
+.layout.right{grid-template-columns:1fr 300px}
+.side-nav{position:sticky;top:110px;align-self:start}
+.side-nav h2{font:700 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--green-600);margin:0 0 10px}
+.side-nav ul{list-style:none;margin:0 0 26px;padding:0;border-left:2px solid var(--line)}
+.side-nav a{display:block;padding:7px 0 7px 16px;margin-left:-2px;border-left:2px solid transparent;text-decoration:none;color:var(--ink);font-size:.95rem}
+.side-nav a:hover{color:var(--green-700)}
+.side-nav a[aria-current="page"]{border-left-color:var(--green-700);color:var(--green-800);font-weight:700}
+.prose{max-width:46em}
+.prose h2{font-size:1.6rem;margin-top:1.6em}
+.prose h2:first-child{margin-top:0}
+.prose ul{padding-left:1.2em}
+.prose li{margin-bottom:.4em}
+.notice{background:#fff7e6;border:1px solid #e9cf8f;border-left:5px solid var(--brass);border-radius:var(--radius);padding:16px 20px;margin:0 0 28px}
+.notice p{margin:0}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px}
+.card h2{margin-top:0;font-size:1.35rem}
+.card address{font-style:normal;color:var(--ink-soft);font-size:.95rem}
+.quote{border-left:3px solid var(--green-600);padding:4px 0 4px 18px;color:var(--ink-soft);font-style:italic}
+table{width:100%;border-collapse:collapse;margin:8px 0 24px;font-size:.96rem}
+caption{text-align:left;font-weight:700;color:var(--green-900);padding-bottom:8px;font-family:var(--serif);font-size:1.1rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--green-50);color:var(--green-900);font-weight:700}
+td.num,th.num{text-align:right}
+tfoot td{font-weight:700;color:var(--green-900);border-bottom:2px solid var(--green-700)}
+.aside-box{background:var(--green-50);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.aside-box h2{font-size:1.15rem}
+.aside-box ul{list-style:none;margin:0;padding:0}
+.aside-box li a{display:block;padding:7px 0;border-top:1px solid var(--line)}
+.aside-box .btn{width:100%;justify-content:center;margin-bottom:10px}
+.doc-groups{display:grid;gap:24px}
+.doc-group h2{font-size:1.35rem;display:flex;align-items:center;gap:10px}
+.doc-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.doc-list a{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;text-decoration:none;color:var(--ink);font-weight:600}
+.doc-list a:hover{border-color:var(--green-700);color:var(--green-800)}
+.doc-list svg{width:24px;height:24px;color:var(--green-600);flex-shrink:0}
+.doc-list small{display:block;font-weight:400;color:var(--ink-soft);font-size:.82rem}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0}
+.dl dt{font-weight:700;color:var(--green-900)}
+.dl dd{margin:0}
+
+/* footer */
+.site-footer{background:var(--green-900);color:#cddbd2;font-size:.94rem}
+.site-footer a{color:#e8f0eb}
+.site-footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding:64px 0 48px}
+.site-footer h2{color:#fff;font:700 .8rem var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{margin-bottom:8px}
+.site-footer address{font-style:normal;line-height:1.8}
+.footer-logo{background:#fff;display:inline-block;padding:10px 14px;border-radius:4px;margin-bottom:18px}
+.footer-logo img{height:44px;width:auto}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{width:40px;height:40px;border:1px solid rgba(255,255,255,.3);border-radius:999px;display:grid;place-items:center}
+.socials a:hover{background:rgba(255,255,255,.1)}
+.socials svg{width:18px;height:18px}
+.site-footer .bottom{border-top:1px solid rgba(255,255,255,.14);padding:20px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+
+/* responsive */
+@media (max-width:1180px){
+  .primary-nav{display:none}
+  .primary-nav.open{display:block;position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);max-height:calc(100vh - 84px);overflow:auto;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .primary-nav>ul{flex-direction:column;padding:8px 0}
+  .nav-btn,.nav-link{width:100%;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--line)}
+  .nav-btn[aria-expanded="true"]{border-bottom-color:var(--line)}
+  .mega{position:static;box-shadow:none;border:0;background:var(--green-50)}
+  .mega .wrap{grid-template-columns:1fr;padding:16px 24px 24px;gap:16px}
+  .mega-intro{display:none}
+  .menu-toggle{display:grid}
+  .header-actions{margin-left:auto}
+  .pathways{grid-template-columns:repeat(2,1fr)}
+  .quick ul{grid-template-columns:repeat(3,1fr)}
+  .quick li:nth-child(4){border-left:0}
+  .quick li:nth-child(n+4){border-top:1px solid var(--line)}
+}
+@media (max-width:860px){
+  .hero .wrap,.split,.news-ext,.layout,.layout.right{grid-template-columns:1fr;gap:36px}
+  .hero-figure::after{display:none}
+  .colleges,.research-grid,.contact-grid{grid-template-columns:1fr}
+  .site-footer .top{grid-template-columns:1fr;gap:32px}
+  .side-nav{position:static}
+  .section{padding:64px 0}
+  .header-apply{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .utility .contact{display:none}
+  .pathways{grid-template-columns:1fr}
+  .quick ul{grid-template-columns:repeat(2,1fr)}
+  .quick li:nth-child(odd){border-left:0}
+  .quick li:nth-child(4){border-left:1px solid var(--line)}
+  .quick li:nth-child(n+3){border-top:1px solid var(--line)}
+  .brand img{height:44px}
+  .hero .wrap{padding-top:48px;padding-bottom:56px}
+  .news-ext,.card{padding:22px}
+  .search-field{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="utility"><div class="wrap">
+  <div class="contact"><a href="tel:+13237312383">(323) 731-2383</a><a href="mailto:admissions@psuca.edu">admissions@psuca.edu</a></div>
+  <nav aria-label="Quick tools"><ul><li><a href="https://docs.google.com/spreadsheets/d/1R3MtRRKzu0sNuC1HpFmLCTuy9SnVjbhi/edit?usp=sharing&amp;ouid=102772909433824981607&amp;rtpof=true&amp;sd=true">Schedule of Classes</a></li><li><a href="https://psu.populiweb.com/router/request_transcript">Transcript Request</a></li><li><a href="https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=https://mail.google.com/a/psuca.edu/&amp;ss=1&amp;ltmpl=default&amp;ltmplcache=2">PSU E-mail</a></li><li><a href="https://psu.populiweb.com/">Populi Portal</a></li></ul></nav>
+</div></div>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img src="https://psuca.edu/wp-content/uploads/2025/10/PSU-logos-based-on-golden-ratio-2-3.png" alt="Pacific States University home" width="180" height="56"></a>
+    <nav class="primary-nav" aria-label="Main"><ul><li>
+  <button class="nav-btn" aria-expanded="false" aria-controls="mega-our-university">Our University <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  <div class="mega" id="mega-our-university"><div class="wrap">
+    <div class="mega-intro"><h2>Our University</h2><p>History, mission, leadership, accreditation and institutional disclosures.</p></div>
+    <div class="mega-cols"><div><h3>About the University</h3><ul><li><a href="https://psuca.edu/history/">History</a></li><li><a href="https://psuca.edu/mission/">Mission &amp; Objectives</a></li><li><a href="https://drive.google.com/file/d/1QtsI5OLC8_XCJKQqhVJrm1fC7-I4AbI2/view?usp=sharing">PSU Identity</a></li><li><a href="accreditation.html">Accreditation and Licensing</a></li></ul></div><div><h3>Leadership</h3><ul><li><a href="https://psuca.edu/board-of-trustees/">Board of Trustees</a></li><li><a href="https://psuca.edu/president/">President</a></li><li><a href="https://psuca.edu/university-personnel-directory/">University Personnel Directory</a></li><li><a href="https://psuca.edu/university-faculty-directory/">University Faculty Directory</a></li></ul></div><div><h3>Statistics</h3><ul><li><a href="disclosures.html">PSU Disclosures</a></li></ul></div></div>
+  </div></div>
+</li><li>
+  <button class="nav-btn" aria-expanded="false" aria-controls="mega-admissions">Admissions <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  <div class="mega" id="mega-admissions"><div class="wrap">
+    <div class="mega-intro"><h2>Admissions</h2><p>Requirements, deadlines, tuition and the online application.</p></div>
+    <div class="mega-cols"><div><h3>Overview</h3><ul><li><a href="https://psuca.edu/?page_id=3296">Admissions Overview</a></li><li><a href="https://psuca.edu/admission-req/">Admission Requirements</a></li><li><a href="https://psuca.edu/degree-or-program-specifics/">Degree Specifics</a></li><li><a href="https://psuca.edu/for-international-students/">International Students</a></li><li><a href="https://psuca.edu/admission-of-transferring-students/">Transferring Students</a></li><li><a href="https://psuca.edu/admission-of-students-with-special-circumstances/">Students with Special Circumstances</a></li><li><a href="https://psuca.edu/accounting-certificate-program-admission-requirement/">Accounting Certificate Program Admission Requirement</a></li></ul></div><div><h3>Application</h3><ul><li><a href="https://psu.populiweb.com/router/admissions/onlineapplications/index?application_form=40713">Apply Now</a></li><li><a href="https://psuca.edu/application-deadline/">Application Deadline</a></li><li><a href="https://psuca.edu/net-price-calculator/">Net Price Calculator</a></li></ul></div><div><h3>Finance</h3><ul><li><a href="https://psuca.edu/financial-policies/">Financial Policies</a></li><li><a href="https://psuca.edu/tuition-and-other-fees/">Tuition and Other Fees</a></li><li><a href="https://psuca.edu/payment-method/">Payment Method</a></li></ul></div></div>
+  </div></div>
+</li><li>
+  <button class="nav-btn" aria-expanded="false" aria-controls="mega-academics">Academics <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  <div class="mega" id="mega-academics"><div class="wrap">
+    <div class="mega-intro"><h2>Academics</h2><p>Degree programs, the Office of the Registrar and academic resources.</p></div>
+    <div class="mega-cols"><div><h3>College of Business</h3><ul><li><a href="https://psuca.edu/bachelor-of-business-administration-b-b-a/">Bachelor of Business Administration (BBA)</a></li><li><a href="https://psuca.edu/master-of-business-administration-m-b-a/">Master of Business Administration (MBA)</a></li></ul></div><div><h3>College of Computer Science</h3><ul><li><a href="https://psuca.edu/bachelor-of-science-b-s/">Bachelor of Science (BS)</a></li><li><a href="program-ms.html">Master of Science (MS)</a></li></ul></div><div><h3>Continuing Education Center</h3><ul><li><a href="https://psuca.edu/accounting-certificate-program/">Accounting Certificate Program</a></li></ul></div><div><h3>Office of Registrar</h3><ul><li><a href="https://psuca.edu/how-to-register/">Register for Classes</a></li><li><a href="https://psuca.edu/how-to-add-drop-courses/">Add / Drop / Swap</a></li><li><a href="https://psu.populiweb.com/router/request_transcript">Official Transcript Request</a></li></ul></div><div><h3>Resources</h3><ul><li><a href="https://psuca.edu/academic-calendar/">Academic Calendar</a></li><li><a href="https://psuca.edu/academic-policies/">Academic Policies</a></li><li><a href="https://psuca.edu/download-forms-2/">Download Forms</a></li><li><a href="https://psuca.edu/jobs-opportunities/">Jobs Opportunities</a></li><li><a href="https://psuca.edu/catalog/">Catalog</a></li><li><a href="https://www.psuca.edu/wp-content/uploads/2023/02/quarter-units-to-semester-conversion-chart.pdf">Units conversion chart</a></li></ul></div></div>
+  </div></div>
+</li><li>
+  <button class="nav-btn" aria-expanded="false" aria-controls="mega-campus-life">Campus Life <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  <div class="mega" id="mega-campus-life"><div class="wrap">
+    <div class="mega-intro"><h2>Campus Life</h2><p>Student services, the International Office and student resources.</p></div>
+    <div class="mega-cols"><div><h3>Student Life</h3><ul><li><a href="https://psuca.edu/category/uncategorized/">Student Life</a></li><li><a href="https://psuca.edu/you-are-in-whats-next/">You Are In, What’s Next?</a></li><li><a href="https://psuca.edu/student-services/">Student Services</a></li><li><a href="https://psuca.edu/facilities/">Facilities</a></li><li><a href="https://psuca.edu/career-center-and-services/">Career Services</a></li><li><a href="https://psuca.edu/housing-services/">Student Housing</a></li><li><a href="https://psuca.edu/disability-services/">Disability Services</a></li><li><a href="https://psuca.edu/international-student-guide/">International Student Guide</a></li></ul></div><div><h3>International Office</h3><ul><li><a href="https://psuca.edu/how-to-apply-for-cpt/">Curricular Practical Training (CPT)</a></li><li><a href="https://psuca.edu/optional-practical-training/">Optional Practical Training (OPT)</a></li><li><a href="https://psuca.edu/stem-optional-practical-training/">OPT STEM Extension</a></li></ul></div><div><h3>Resources</h3><ul><li><a href="https://psuca.edu/student-rights-and-responsibilities/">Student Rights and Responsibilities</a></li><li><a href="https://psuca.edu/on-campus-jobs-opportunities/">On-Campus Jobs Opportunities</a></li><li><a href="https://psuca.edu/scholarship-opportunities/">Scholarship Opportunities</a></li><li><a href="https://psuca.edu/download-forms-2/">Download Forms</a></li><li><a href="https://psuca.edu/clc/">Cyber Learning Center</a></li><li><a href="https://psu-studentspublication.github.io/event/">Commencement 2026</a></li></ul></div></div>
+  </div></div>
+</li><li>
+  <button class="nav-btn" aria-expanded="false" aria-controls="mega-research">Research <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  <div class="mega" id="mega-research"><div class="wrap">
+    <div class="mega-intro"><h2>Research</h2><p>Small University. BIG RESEARCH.</p></div>
+    <div class="mega-cols"><div><h3>Research</h3><ul><li><a href="https://psuca.edu/beri/">The Buffinger &amp; Evans Research Institute (J1)</a></li><li><a href="https://sungho814.github.io/psucalifornia/">PSU AI &amp; Robotics Excellence Lab</a></li><li><a href="https://psu-studentspublication.github.io/Students_Publications/">PSU Student Publication</a></li></ul></div></div>
+  </div></div>
+</li><li><a class="nav-link" href="contact.html">FAQ &amp; Contact</a></li></ul></nav>
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" aria-expanded="false" aria-controls="site-search" aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a class="btn btn-primary header-apply" href="https://psu.populiweb.com/router/admissions/onlineapplications/index?application_form=40713">Apply Now</a>
+      <button class="icon-btn menu-toggle" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="search-panel" id="site-search" role="search">
+    <div class="wrap">
+      <form id="search-form">
+        <label for="search-input">Find a page, program or resource</label>
+        <div class="search-field"><input id="search-input" type="search" autocomplete="off" placeholder="Try “transcript”, “OPT”, “tuition” or “MBA”"></div>
+      </form>
+      <ul class="search-results" id="search-results" aria-live="polite"></ul>
+      <p class="search-empty" id="search-empty" hidden>No matching pages. Try a shorter word, or see <a href="contact.html">FAQ &amp; Contact</a>.</p>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Pacific States University · Los Angeles</span>
+      <h1 id="hero-title">Small University. <em>BIG RESEARCH.</em></h1>
+      <p class="lede">A private, non-profit university dedicated to STEM-based, research-oriented education, with programs in business and computer science.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="https://psu.populiweb.com/router/admissions/onlineapplications/index?application_form=40713">Apply Now</a>
+        <a class="btn btn-ghost" href="#programs">Explore Programs</a>
+      </div>
+      <p class="accred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><a href="accreditation.html">Accredited by ACCSC</a> · Approved to operate by BPPE</span></p>
+    </div>
+    <figure class="hero-figure" style="margin:0">
+      <img src="https://psuca.edu/wp-content/uploads/2025/11/Main2025b-scaled.png" alt="" width="1200" height="900">
+    </figure>
+  </div>
+</section>
+
+<nav class="quick" aria-label="Popular resources"><div class="wrap"><ul><li><a href="https://www.psuca.edu/academic-calendar/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Academic Calendar</span></a></li><li><a href="https://www.psuca.edu/catalog/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Catalog</span></a></li><li><a href="https://www.psuca.edu/download-forms/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg><span>Download Forms</span></a></li><li><a href="disclosures.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>PSU Disclosures</span></a></li><li><a href="https://docs.google.com/spreadsheets/d/1R3MtRRKzu0sNuC1HpFmLCTuy9SnVjbhi/edit?usp=sharing&amp;ouid=102772909433824981607&amp;rtpof=true&amp;sd=true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Schedule of Classes</span></a></li><li><a href="https://psu.populiweb.com/router/request_transcript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 21h10a2 2 0 0 0 2-2v-1H10v1a2 2 0 0 1-4 0V5a2 2 0 0 0-2-2h12a2 2 0 0 1 2 2v13"/></svg><span>Transcript Request</span></a></li></ul></div></nav>
+
+<section class="section" aria-labelledby="paths-title">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Start here</span><h2 id="paths-title">Find what you need</h2></div>
+    <p>Direct routes to the pages each group uses most.</p></div>
+    <div class="pathways"><article class="pathway"><h3>Prospective Students</h3><ul><li><a href="https://psu.populiweb.com/router/admissions/onlineapplications/index?application_form=40713">Apply Now</a></li><li><a href="https://psuca.edu/admission-req/">Admission Requirements</a></li><li><a href="https://psuca.edu/application-deadline/">Application Deadline</a></li><li><a href="https://psuca.edu/tuition-and-other-fees/">Tuition and Other Fees</a></li><li><a href="https://psuca.edu/net-price-calculator/">Net Price Calculator</a></li><li><a href="https://psuca.edu/admission-of-transferring-students/">Transferring Students</a></li></ul></article><article class="pathway"><h3>International Students</h3><ul><li><a href="https://psuca.edu/for-international-students/">International Student Admission</a></li><li><a href="https://psuca.edu/international-student-guide/">International Student Guide</a></li><li><a href="https://psuca.edu/optional-practical-training/">Optional Practical Training (OPT)</a></li><li><a href="https://psuca.edu/stem-optional-practical-training/">OPT STEM Extension</a></li><li><a href="https://psuca.edu/housing-services/">Student Housing</a></li></ul></article><article class="pathway"><h3>Current Students</h3><ul><li><a href="https://psu.populiweb.com/">Populi Portal</a></li><li><a href="https://docs.google.com/spreadsheets/d/1R3MtRRKzu0sNuC1HpFmLCTuy9SnVjbhi/edit?usp=sharing&amp;ouid=102772909433824981607&amp;rtpof=true&amp;sd=true">Schedule of Classes</a></li><li><a href="https://psuca.edu/how-to-register/">Register for Classes</a></li><li><a href="https://psuca.edu/how-to-add-drop-courses/">Add / Drop / Swap</a></li><li><a href="https://psuca.edu/student-services/">Student Services</a></li><li><a href="https://psuca.edu/career-center-and-services/">Career Services</a></li></ul></article><article class="pathway"><h3>Faculty &amp; Staff</h3><ul><li><a href="https://psuca.edu/university-faculty-directory/">University Faculty Directory</a></li><li><a href="https://psuca.edu/university-personnel-directory/">University Personnel Directory</a></li><li><a href="https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=https://mail.google.com/a/psuca.edu/&amp;ss=1&amp;ltmpl=default&amp;ltmplcache=2">PSU E-mail</a></li><li><a href="https://psu.populiweb.com/">Populi Portal</a></li><li><a href="https://psuca.edu/academic-policies/">Academic Policies</a></li><li><a href="https://psuca.edu/academic-calendar/">Academic Calendar</a></li></ul></article></div>
+  </div>
+</section>
+
+<section class="section alt" id="programs" aria-labelledby="prog-title">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Academics</span><h2 id="prog-title">Find your program</h2></div>
+    <p>Evening and online classes are available. <a href="https://psuca.edu/catalog/">View the Catalog</a> for full program details.</p></div>
+    <div class="colleges"><article class="college"><img src="https://www.psuca.edu/wp-content/uploads/2022/09/PSU_LP_featured_image_BBA.jpg" alt="" loading="lazy" width="640" height="360">
+<div class="college-body"><span class="eyebrow">College</span><h3>College of Business</h3><ul class="program-list"><li><a href="https://psuca.edu/bachelor-of-business-administration-b-b-a/">Bachelor of Business Administration (BBA)</a></li><li><a href="https://psuca.edu/master-of-business-administration-m-b-a/">Master of Business Administration (MBA)</a></li></ul></div></article><article class="college"><img src="https://www.psuca.edu/wp-content/uploads/2022/09/PSU_LP_featured_computer_science.jpg" alt="" loading="lazy" width="640" height="360">
+<div class="college-body"><span class="eyebrow">College</span><h3>College of Computer Science</h3><ul class="program-list"><li><a href="https://psuca.edu/bachelor-of-science-b-s/">Bachelor of Science (BS)<span>Computer Science · STEM designated</span></a></li><li><a href="program-ms.html">Master of Science (MS)<span>Computer Science (AI/ML) or Information Systems (Cyber Security)</span></a></li></ul></div></article><article class="college"><img src="https://www.psuca.edu/wp-content/uploads/2022/09/PSU_LP_featured_image_accounting.jpg" alt="" loading="lazy" width="640" height="360">
+<div class="college-body"><span class="eyebrow">College</span><h3>Continuing Education Center</h3><ul class="program-list"><li><a href="https://psuca.edu/accounting-certificate-program/">Accounting Certificate Program</a></li></ul></div></article></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="about-title">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">About the University</span>
+      <h2 id="about-title" class="sr-only">About Pacific States University</h2>
+      <p class="tagline">Education is the Best Investment</p>
+      <p><strong>Pacific States University (PSU)</strong> carries a 100-year legacy in STEM education, tracing its origins to 1928, when William G. Buffinger founded the Radio Institute of California in Los Angeles. Evolving from its pioneering work in radio and electronic engineering, PSU has continually advanced to encompass computer science, data science, and business technology. Today, as a private, non-profit university, PSU remains dedicated to STEM-based, research-oriented education, preparing students with the analytical and technological skills needed for success in modern global industries.</p>
+      <p><a class="btn btn-outline" href="https://psuca.edu/mission/">Mission &amp; Objectives</a></p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>Accredited by ACCSC</strong><p>The Accrediting Commission of Career Schools and Colleges (ACCSC) is a recognized accrediting agency by the United States Department of Education.</p></div>
+      <div class="fact"><strong>Approved to operate by BPPE</strong><p>Licensed and approved to operate by the Bureau for Private Postsecondary Education, part of the State of California Department of Consumer Affairs.</p></div>
+      <div class="fact"><strong>Member of CHEA</strong><p>The Council for Higher Education Accreditation.</p></div>
+      <div class="fact"><strong>Authorized to enroll F-1 students</strong><p>Authorized under Federal Law to enroll non-immigrant alien students (F-1).</p></div>
+      <p><a href="accreditation.html">Accreditation and Licensing details →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section research" aria-labelledby="res-title">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Research</span><h2 id="res-title">Research at Pacific States University</h2></div>
+    <p>Institutes, labs and student publications at Pacific States University.</p></div>
+    <div class="research-grid"><a class="research-card" href="https://psuca.edu/beri/"><h3>The Buffinger &amp; Evans Research Institute (J1)</h3><span>Visit →</span></a><a class="research-card" href="https://sungho814.github.io/psucalifornia/"><h3>PSU AI &amp; Robotics Excellence Lab</h3><span>Visit →</span></a><a class="research-card" href="https://psu-studentspublication.github.io/Students_Publications/"><h3>PSU Student Publication</h3><span>Visit →</span></a></div>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="emp-title">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Careers</span><h2 id="emp-title">Employers Who Have Hired PSU Grads</h2></div>
+    <p><a href="https://psuca.edu/career-center-and-services/">Career Services</a></p></div>
+    <ul class="employers"><li>APPLE</li><li>AMAZON</li><li>DISNEY</li><li>SOCAL GAS COMPANY</li><li>SAMSUNG</li><li>IBM</li><li>FOSSIL</li><li>SAP</li><li>VICTORINOX</li><li>SWAROVSKI</li><li>MITCHELL &amp; TITUS</li><li>CAPITALONE</li><li>RIVIAN</li><li>CITY OF SANTA MONICA</li><li>etc...</li></ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="news-title">
+  <div class="wrap">
+    <div class="news-ext">
+      <div><span class="eyebrow">Higher Ed. News</span><h2 id="news-title">Higher education headlines</h2>
+      <p>Daily news from across U.S. higher education, published by Inside Higher Ed, an independent outside source.</p></div>
+      <div><a class="btn btn-outline" href="https://www.insidehighered.com/">Read Inside Higher Ed</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap top">
+    <div>
+      <a class="footer-logo" href="index.html"><img src="https://psuca.edu/wp-content/uploads/2025/10/PSU-logos-based-on-golden-ratio-2-3.png" alt="Pacific States University home" width="150" height="44"></a>
+      <h2>About Us</h2>
+      <p><strong>Pacific States University</strong> is a private non-profit educational institution approved to operate by the <a href="http://bppe.ca.gov/">Bureau for Private Postsecondary Education</a> (BPPE) and accredited by the <a href="http://www.accsc.org/">Accrediting Commission of Career Schools and Colleges</a> (ACCSC).</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/PacificStatesUniversity" aria-label="Pacific States University on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg></a>
+        <a href="https://www.instagram.com/psu_edu/" aria-label="Pacific States University on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h2>Popular Links</h2>
+      <ul>
+        <li><a href="https://www.psuca.edu/catalog/">Academic Catalog</a></li>
+        <li><a href="https://www.psuca.edu/tuition-and-other-fees/">Tuition and Other Fees</a></li>
+        <li><a href="https://www.psuca.edu/download-forms/">Download Forms</a></li>
+        <li><a href="https://www.psuca.edu/academic-calendar/">Academic Calendar</a></li>
+        <li><a href="https://www.facebook.com/PacificStatesUniversity/">PSU on Facebook</a></li>
+        <li><a href="https://psuca.edu/alumni/">Alumni</a></li>
+        <li><a href="disclosures.html">PSU Disclosures</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Our Address</h2>
+      <address><strong>Pacific States University</strong><br>3530 Wilshire Boulevard, Suite 1110<br>Los Angeles, CA 90010<br>Tel: <a href="tel:+13237312383">(323) 731-2383</a></address>
+      <p style="margin-top:14px"><a href="contact.html">FAQ &amp; Contact Us</a></p>
+    </div>
+  </div>
+  <div class="wrap bottom">
+    <span>501(c)(3) Nonprofit, Pacific States University | <a href="https://www.psuca.edu/terms-of-use/">Terms of Use</a> | All Rights Reserved</span>
+    <span>Redesign concept for review</span>
+  </div>
+</footer>
+<script>window.SITE_INDEX=[{"t": "History", "u": "https://psuca.edu/history/", "s": "Our University › About the University"}, {"t": "Mission & Objectives", "u": "https://psuca.edu/mission/", "s": "Our University › About the University"}, {"t": "PSU Identity", "u": "https://drive.google.com/file/d/1QtsI5OLC8_XCJKQqhVJrm1fC7-I4AbI2/view?usp=sharing", "s": "Our University › About the University"}, {"t": "Accreditation and Licensing", "u": "accreditation.html", "s": "Our University › About the University"}, {"t": "Board of Trustees", "u": "https://psuca.edu/board-of-trustees/", "s": "Our University › Leadership"}, {"t": "President", "u": "https://psuca.edu/president/", "s": "Our University › Leadership"}, {"t": "University Personnel Directory", "u": "https://psuca.edu/university-personnel-directory/", "s": "Our University › Leadership"}, {"t": "University Faculty Directory", "u": "https://psuca.edu/university-faculty-directory/", "s": "Our University › Leadership"}, {"t": "PSU Disclosures", "u": "disclosures.html", "s": "Our University › Statistics"}, {"t": "Admissions Overview", "u": "https://psuca.edu/?page_id=3296", "s": "Admissions › Overview"}, {"t": "Admission Requirements", "u": "https://psuca.edu/admission-req/", "s": "Admissions › Overview"}, {"t": "Degree Specifics", "u": "https://psuca.edu/degree-or-program-specifics/", "s": "Admissions › Overview"}, {"t": "International Students", "u": "https://psuca.edu/for-international-students/", "s": "Admissions › Overview"}, {"t": "Transferring Students", "u": "https://psuca.edu/admission-of-transferring-students/", "s": "Admissions › Overview"}, {"t": "Students with Special Circumstances", "u": "https://psuca.edu/admission-of-students-with-special-circumstances/", "s": "Admissions › Overview"}, {"t": "Accounting Certificate Program Admission Requirement", "u": "https://psuca.edu/accounting-certificate-program-admission-requirement/", "s": "Admissions › Overview"}, {"t": "Apply Now", "u": "https://psu.populiweb.com/router/admissions/onlineapplications/index?application_form=40713", "s": "Admissions › Application"}, {"t": "Application Deadline", "u": "https://psuca.edu/application-deadline/", "s": "Admissions › Application"}, {"t": "Net Price Calculator", "u": "https://psuca.edu/net-price-calculator/", "s": "Admissions › Application"}, {"t": "Financial Policies", "u": "https://psuca.edu/financial-policies/", "s": "Admissions › Finance"}, {"t": "Tuition and Other Fees", "u": "https://psuca.edu/tuition-and-other-fees/", "s": "Admissions › Finance"}, {"t": "Payment Method", "u": "https://psuca.edu/payment-method/", "s": "Admissions › Finance"}, {"t": "Bachelor of Business Administration (BBA)", "u": "https://psuca.edu/bachelor-of-business-administration-b-b-a/", "s": "Academics › College of Business"}, {"t": "Master of Business Administration (MBA)", "u": "https://psuca.edu/master-of-business-administration-m-b-a/", "s": "Academics › College of Business"}, {"t": "Bachelor of Science (BS)", "u": "https://psuca.edu/bachelor-of-science-b-s/", "s": "Academics › College of Computer Science"}, {"t": "Master of Science (MS)", "u": "program-ms.html", "s": "Academics › College of Computer Science"}, {"t": "Accounting Certificate Program", "u": "https://psuca.edu/accounting-certificate-program/", "s": "Academics › Continuing Education Center"}, {"t": "Register for Classes", "u": "https://psuca.edu/how-to-register/", "s": "Academics › Office of Registrar"}, {"t": "Add / Drop / Swap", "u": "https://psuca.edu/how-to-add-drop-courses/", "s": "Academics › Office of Registrar"}, {"t": "Official Transcript Request", "u": "https://psu.populiweb.com/router/request_transcript", "s": "Academics › Office of Registrar"}, {"t": "Academic Calendar", "u": "https://psuca.edu/academic-calendar/", "s": "Academics › Resources"}, {"t": "Academic Policies", "u": "https://psuca.edu/academic-policies/", "s": "Academics › Resources"}, {"t": "Download Forms", "u": "https://psuca.edu/download-forms-2/", "s": "Academics › Resources"}, {"t": "Jobs Opportunities", "u": "https://psuca.edu/jobs-opportunities/", "s": "Academics › Resources"}, {"t": "Catalog", "u": "https://psuca.edu/catalog/", "s": "Academics › Resources"}, {"t": "Units conversion chart", "u": "https://www.psuca.edu/wp-content/uploads/2023/02/quarter-units-to-semester-conversion-chart.pdf", "s": "Academics › Resources"}, {"t": "Student Life", "u": "https://psuca.edu/category/uncategorized/", "s": "Campus Life › Student Life"}, {"t": "You Are In, What’s Next?", "u": "https://psuca.edu/you-are-in-whats-next/", "s": "Campus Life › Student Life"}, {"t": "Student Services", "u": "https://psuca.edu/student-services/", "s": "Campus Life › Student Life"}, {"t": "Facilities", "u": "https://psuca.edu/facilities/", "s": "Campus Life › Student Life"}, {"t": "Career Services", "u": "https://psuca.edu/career-center-and-services/", "s": "Campus Life › Student Life"}, {"t": "Student Housing", "u": "https://psuca.edu/housing-services/", "s": "Campus Life › Student Life"}, {"t": "Disability Services", "u": "https://psuca.edu/disability-services/", "s": "Campus Life › Student Life"}, {"t": "International Student Guide", "u": "https://psuca.edu/international-student-guide/", "s": "Campus Life › Student Life"}, {"t": "Curricular Practical Training (CPT)", "u": "https://psuca.edu/how-to-apply-for-cpt/", "s": "Campus Life › International Office"}, {"t": "Optional Practical Training (OPT)", "u": "https://psuca.edu/optional-practical-training/", "s": "Campus Life › International Office"}, {"t": "OPT STEM Extension", "u": "https://psuca.edu/stem-optional-practical-training/", "s": "Campus Life › International Office"}, {"t": "Student Rights and Responsibilities", "u": "https://psuca.edu/student-rights-and-responsibilities/", "s": "Campus Life › Resources"}, {"t": "On-Campus Jobs Opportunities", "u": "https://psuca.edu/on-campus-jobs-opportunities/", "s": "Campus Life › Resources"}, {"t": "Scholarship Opportunities", "u": "https://psuca.edu/scholarship-opportunities/", "s": "Campus Life › Resources"}, {"t": "Cyber Learning Center", "u": "https://psuca.edu/clc/", "s": "Campus Life › Resources"}, {"t": "Commencement 2026", "u": "https://psu-studentspublication.github.io/event/", "s": "Campus Life › Resources"}, {"t": "The Buffinger & Evans Research Institute (J1)", "u": "https://psuca.edu/beri/", "s": "Research › Research"}, {"t": "PSU AI & Robotics Excellence Lab", "u": "https://sungho814.github.io/psucalifornia/", "s": "Research › Research"}, {"t": "PSU Student Publication", "u": "https://psu-studentspublication.github.io/Students_Publications/", "s": "Research › Research"}, {"t": "Schedule of Classes", "u": "https://docs.google.com/spreadsheets/d/1R3MtRRKzu0sNuC1HpFmLCTuy9SnVjbhi/edit?usp=sharing&ouid=102772909433824981607&rtpof=true&sd=true", "s": "Quick links", "k": "courses timetable"}, {"t": "PSU E-mail", "u": "https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/a/psuca.edu/&ss=1&ltmpl=default&ltmplcache=2", "s": "Quick links", "k": "gmail login"}, {"t": "Populi Portal", "u": "https://psu.populiweb.com/", "s": "Quick links", "k": "student portal login"}, {"t": "FAQ & Contact Us", "u": "contact.html", "s": "Contact", "k": "phone email address wechat line kakaotalk"}, {"t": "Alumni", "u": "https://psuca.edu/alumni/", "s": "Popular links", "k": "graduates"}, {"t": "Terms of Use", "u": "https://www.psuca.edu/terms-of-use/", "s": "Legal", "k": ""}];</script>
+<script>(function(){
+  var btns = document.querySelectorAll('.nav-btn');
+  function closeAll(except){
+    btns.forEach(function(b){
+      if(b===except) return;
+      b.setAttribute('aria-expanded','false');
+      var p=document.getElementById(b.getAttribute('aria-controls'));
+      if(p) p.classList.remove('open');
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=b.getAttribute('aria-expanded')==='true';
+      closeAll(b);
+      b.setAttribute('aria-expanded',String(!open));
+      document.getElementById(b.getAttribute('aria-controls')).classList.toggle('open',!open);
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.primary-nav')) closeAll();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      var openBtn=document.querySelector('.nav-btn[aria-expanded="true"]');
+      closeAll();
+      if(openBtn) openBtn.focus();
+      if(search && search.classList.contains('open')){toggleSearch(false);searchBtn.focus();}
+    }
+  });
+
+  var menuBtn=document.querySelector('.menu-toggle');
+  var nav=document.querySelector('.primary-nav');
+  if(menuBtn){
+    menuBtn.addEventListener('click',function(){
+      var open=menuBtn.getAttribute('aria-expanded')==='true';
+      menuBtn.setAttribute('aria-expanded',String(!open));
+      menuBtn.setAttribute('aria-label',open?'Open menu':'Close menu');
+      nav.classList.toggle('open',!open);
+      if(open) closeAll();
+    });
+  }
+
+  var search=document.getElementById('site-search');
+  var searchBtn=document.querySelector('.search-toggle');
+  var input=document.getElementById('search-input');
+  var results=document.getElementById('search-results');
+  var empty=document.getElementById('search-empty');
+  var index=window.SITE_INDEX||[];
+  function toggleSearch(force){
+    var open=typeof force==='boolean'?force:!search.classList.contains('open');
+    search.classList.toggle('open',open);
+    searchBtn.setAttribute('aria-expanded',String(open));
+    if(open) input.focus();
+  }
+  if(searchBtn) searchBtn.addEventListener('click',function(){toggleSearch();});
+  function render(q){
+    q=q.trim().toLowerCase();
+    results.innerHTML='';
+    empty.hidden=true;
+    if(!q) return;
+    var terms=q.split(/\s+/);
+    var hits=index.filter(function(item){
+      var hay=(item.t+' '+item.s+' '+(item.k||'')).toLowerCase();
+      return terms.every(function(t){return hay.indexOf(t)>-1;});
+    }).slice(0,12);
+    if(!hits.length){empty.hidden=false;return;}
+    hits.forEach(function(h){
+      var li=document.createElement('li');
+      var a=document.createElement('a');
+      a.href=h.u;
+      a.textContent=h.t;
+      var s=document.createElement('small');
+      s.textContent=h.s;
+      a.appendChild(s);
+      li.appendChild(a);
+      results.appendChild(li);
+    });
+  }
+  if(input){
+    input.addEventListener('input',function(){render(input.value);});
+    document.getElementById('search-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var first=results.querySelector('a');
+      if(first) window.location.href=first.href;
+    });
+  }
+})();
+</script>
+</body>
+</html>
